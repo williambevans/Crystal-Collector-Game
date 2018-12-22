@@ -1,0 +1,39 @@
+
+
+.display-4 {
+    text-align: center;
+    color: white;
+    font-family: fantasy;
+    }
+
+p {
+    color: green;
+}
+
+    #one {
+     
+        margin-left: 90px;
+        margin-top: 50px;
+    }
+
+    #two {
+        width: 75%;
+        margin-left: 60px;
+        margin-top: 30px;
+
+    }
+
+    #three {
+        margin-top: 60px;
+        margin-left: 150px;
+    }
+
+    .jumbotron {
+        margin-top: 50px;
+    }
+
+    .btn-primary {
+        margin-right: 30px;
+    }
+    
+   
