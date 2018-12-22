@@ -1,44 +1,46 @@
-var guessed = 
-$(".crystals").click(function(){
-  alert("image is clicked");  
+//var targetNumber = Math.floor((Math.random() * 120) + 19);
 
-}); 
+var targetNumber = 0;
+var currentNumber = 0;
+var wins = 0;
+var losses = 0;
 
-var targetNumber = Math.floor((Math.random() * 120) + 19);
-;
+refreshGame();
+
+function assignRandomNumbers() {
+  $('img').each(function() {
+    $(this).attr("value", Math.floor(Math.random() * 12));
+  })
+}
 
 
+
+function refreshGame() {
+
+  assignRandomNumbers();
+  currentNumber = 0;
+  targetNumber = 0;
+  targetNumber = Math.floor(Math.random() * 120) + 19;
   $("#number-to-guess").text("Number to guess: " + targetNumber);
-  $("#totalScore").text("Your total score is: " + increment);
+  $("#totalScore").text("Your current score: 0");
+}
 
-  var counter = 0;
-  var numberOptions = Math.floor((Math.random() * 12) + 1);
-  var increment = numberOptions;
-  
+$('img').click(function() {
 
+  var value = $(this).attr('value');
+  currentNumber += parseInt(value);
+  $('#totalScore').text("Your current score: " + currentNumber);
 
-  $(".crystalsOne").on("click", function() {
-
-    var crystalValue = ($(this).attr("data-crystalvalue"));
-    crystalValue = parseInt(crystalValue);
-
-   
-    counter += increment;
-
-    
-    $( "#totalScore" ).append(counter);
-
-    if (counter === targetNumber) {
-
-      $( "#wins" ).append();
-    }
-    else if (counter >= targetNumber) {
-
-      
-      $( "#losses" ).append();
-    }
-
-  });
+  if(currentNumber == targetNumber) {
+    wins++;
+    $('#wins').text(wins);
+    refreshGame();
+  }
+  else if(currentNumber > targetNumber) {
+    losses++;
+    $('#losses').text(losses);
+    refreshGame();
+  }
+})
 
 
- 
